@@ -1,0 +1,2 @@
+còn đăng kiểm thì trả ra 
+Hết hoặc không có đăng kiểm thì update xong trả ra

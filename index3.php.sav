@@ -1,0 +1,22 @@
+<?php
+	//$result = @file_get_contenta('http://www.vr.org.vn/ptpublicweb/Login.aspx');
+	//var_dump($result);
+	//die();
+	$curl = curl_init();
+	$agent = 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:17.0) Gecko/20100101 Firefox/17.0';
+	curl_setopt($curl, CURLOPT_USERAGENT,$agent);
+	curl_setopt($curl, CURLOPT_REFERER, 'http://www.vr.org.vn/ptpublicweb/Login.aspx');
+	$dir  = dirname(__FILE__);	
+	$config['cookie_file'] = $dir . '/cookies/' . md5($_SERVER['REMOTE_ADDR']) . '.txt';
+	curl_setopt($curl, CURLOPT_COOKIEFILE, $config['cookie_file']);
+	curl_setopt($curl, CURLOPT_COOKIEJAR, $config['cookie_file']);
+	curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+	echo "Error: ".curl_error($curl);
+	//var_dump($ch);
+	//die();
+	$server_output = curl_exec ($curl);
+	var_dump(curl_getinfo($curl));
+	var_dump($server_output);	
+
+?>
